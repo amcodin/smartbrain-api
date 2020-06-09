@@ -14,7 +14,7 @@ const db = knex({
   connection: {
     host: "127.0.0.1",
     user: "postgres",
-    password: "PASSWORD",
+    password: "1592", //ADD YOUR POSTGRES PASSWORD HERE
     database: "smartbrain",
   },
 });
@@ -42,6 +42,10 @@ app.post("/signin", (req, res) => {
 
 app.post("/register", (req, res) => {
   register.handleRegister(req, res, db, bcrypt, saltRounds);
+});
+
+app.post("/imageurl", (req, res) => {
+  image.handleApiCall(req, res);
 });
 
 app.listen(3000, () => {
